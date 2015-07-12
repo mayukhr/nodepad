@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <textarea name="writepad" id="writepad" rows="30" cols="100"></textarea>
+  </body>
+
+  <script type="text/javascript">
+      var pageSave = function (){
+          var params = {};
+          //TODO: get IP Address
+          params.ipAddress = '192.168.1.1';
+          params.note = document.getElementById('writepad').value;
+
+          params = JSON.stringify(params);
+          //Post and Save page data to cloudant
+          var xmlhttp = new XMLHttpRequest();
+          xmlhttp.open("POST", '/savedoc', true);
+          xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+          //var obj = {hello:'world'};
+          xmlhttp.send(params);
+
+
+      }
+      //pageSave();
+      setInterval('pageSave();', 15000);
+
+  </script>
+</html>

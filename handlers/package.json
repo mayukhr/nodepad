@@ -1,0 +1,11 @@
+{
+  "name": "handlers",
+  "description": "handlers",
+  "version": "0.1.0",
+  "homepage": "",
+  "main": "handler.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "keywords": []
+}
